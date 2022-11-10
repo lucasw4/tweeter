@@ -1,0 +1,11 @@
+header {
+  padding-top: 5px;
+  display: flex;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffdede;
+  background-image: url("https://www.transparenttextures.com/patterns/black-twill.png");
+}

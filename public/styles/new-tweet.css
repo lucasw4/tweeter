@@ -1,0 +1,27 @@
+button {
+  font-family: "Bungee", sans-serif;
+  background-color: #4152a1;
+  color: whitesmoke;
+  border: 0;
+}
+
+label {
+  border-bottom: thick #555149;
+}
+
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f1ed;
+  width: 500px;
+}
+
+.counter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
