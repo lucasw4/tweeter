@@ -3,7 +3,7 @@
   flex-direction: column;
   background-color: #f3f1ed;
   margin: 0 2em;
-  width: 500px;
+  width: 90%;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
 }
@@ -18,6 +18,7 @@
 .form-tweet {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 .counter {
@@ -33,17 +34,22 @@
 }
 
 .new-tweet textarea {
-  height: 30px;
-  width: 90%;
+  height: 50px;
+  width: 100%;
   border: hidden;
   border-bottom: 3px solid #555149;
   background-color: #f4f1ec;
+  font-size: 20px;
 }
 
 .new-tweet label {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: bold;
   color: #555149;
+}
+
+.below-limit {
+  color: red;
 }
 
 ::placeholder {
