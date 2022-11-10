@@ -1,27 +1,53 @@
-button {
-  font-family: "Bungee", sans-serif;
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f1ed;
+  margin: 0 2em;
+  width: 500px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+}
+
+.tweet-title {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #555149;
+}
+
+.form-tweet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  color: #555149;
+  font-family: "Bungee", cursive;
+}
+
+.new-tweet button {
+  font-family: "Bungee", cursive;
   background-color: #4152a1;
   color: whitesmoke;
   border: 0;
 }
 
-label {
-  border-bottom: thick #555149;
+.new-tweet textarea {
+  height: 30px;
+  width: 90%;
+  border: hidden;
+  border-bottom: 3px solid #555149;
+  background-color: #f4f1ec;
 }
 
-.new-tweet {
-  display: flex;
-  flex-direction: column;
-  background-color: #f3f1ed;
-  width: 500px;
+.new-tweet label {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  color: #555149;
 }
 
-.counter {
-  display: flex;
-  justify-content: flex-end;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+::placeholder {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  color: #555149;
 }

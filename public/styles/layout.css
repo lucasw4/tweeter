@@ -24,13 +24,14 @@ body {
 }
 
 nav {
-  font-family: "Bungee", sans-serif;
+  font-family: "Bungee", cursive;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #f4f1ec;
   width: 90%, 90%;
 }
