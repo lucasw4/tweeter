@@ -6,8 +6,8 @@ header.user-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ffdede;
-  background-image: url("https://www.transparenttextures.com/patterns/black-twill.png");
+  background-color: #39704188;
+  background-image: url("../images/cartographer.png");
 }
 
 header.tweet-list {

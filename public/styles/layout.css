@@ -27,12 +27,12 @@ nav {
   font-family: "Bungee", cursive;
 }
 
-.container {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f4f1ec;
+  background-color: #f3f1ec;
   width: 90%, 90%;
 }
 
