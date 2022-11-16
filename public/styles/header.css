@@ -1,4 +1,4 @@
-header {
+header.user-info {
   padding-top: 5px;
   display: flex;
   height: 400px;
@@ -8,4 +8,11 @@ header {
   align-items: center;
   background-color: #ffdede;
   background-image: url("https://www.transparenttextures.com/patterns/black-twill.png");
+}
+
+header.tweet-list {
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
 }

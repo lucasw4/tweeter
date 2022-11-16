@@ -1,0 +1,31 @@
+section {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f1ed;
+  margin: 0 2em;
+  width: 90%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+}
+
+section textarea {
+  height: 50px;
+  width: 100%;
+  border: hidden;
+  border-bottom: 3px solid #555149;
+  background-color: #f4f1ec;
+  font-size: 20px;
+}
+
+section label {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  color: #555149;
+}
+
+section button {
+  font-family: "Bungee", cursive;
+  background-color: #4152a1;
+  color: whitesmoke;
+  border: 0;
+}
