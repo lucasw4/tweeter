@@ -1,6 +1,6 @@
 article {
   border: 3px solid #555149;
-  margin: 20px;
+  margin: 25px 0px;
   padding: 15px;
   transition: box-shadow 0.5s ease;
 }
@@ -48,18 +48,21 @@ p {
   margin-left: 10px;
 }
 
-h4.user-name {
+h4 {
+  display: flex;
   margin-left: 5px;
-  height: 25px;
+  height: auto;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-size: 25px;
+  align-items: center;
 }
 
 h4.user-handle {
   font-family: "Source Sans Pro", sans-serif;
   position: absolute;
   right: 10px;
+  font-weight: 600;
   font-size: 25px;
 }
 
