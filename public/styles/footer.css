@@ -1,6 +1,7 @@
 footer.tweet-footer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   position: relative;
   border-top: solid 3px #555149;
   padding: 10px 0px;
