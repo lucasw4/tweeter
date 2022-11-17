@@ -40,6 +40,16 @@ $(document).ready(function () {
     });
   };
 
+  // Retreives last element from array and calls renderSpecificTweet on it. Made to render a new tweet on form submission.
+  const newTweetLoader = function () {
+    $.get("/tweets", function (data) {
+      const lastElement = data.slice(-1)[0];
+      renderSpecificTweet(lastElement);
+      $(`#tweet-text`).val("");
+      $("output.counter").val(140);
+    });
+  };
+
   loadTweets();
 
   // Loops over each object of tweets and renders them to the webpage using createTweetElement
@@ -50,18 +60,21 @@ $(document).ready(function () {
     });
   };
 
+  // Renders specific tweet on form submission without looping through all the tweets
+  const renderSpecificTweet = function (tweet) {
+    $(".display-tweet").prepend(createTweetElement(tweet));
+  };
+
   // POST request sends data from textarea on form submission
   $("form").submit(() => {
     window.event.preventDefault();
-
-    // Checks if form data is empty or over 140 length before submitting POST method
     if ($(`#tweet-text`).val() === "") {
       alert("Your tweet must not be empty!");
     } else if ($("#tweet-text").val().length > 140) {
       alert("Your tweet must not be longer than 140 characters!");
     } else {
       const data = $("#tweet-text").serialize();
-      $.post("/tweets", data, loadTweets());
+      $.post("/tweets", data).then(newTweetLoader);
     }
   });
 });
