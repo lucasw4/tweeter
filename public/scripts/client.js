@@ -6,17 +6,30 @@
 
 console.log(typeof jQuery);
 
-const tweetData = {
-  user: {
-    name: "Newton",
-    avatars: "https://i.imgur.com/73hZDYK.png",
-    handle: "@SirIsaac",
+const tweetData = [
+  {
+    user: {
+      name: "Newton",
+      avatars: "https://i.imgur.com/73hZDYK.png",
+      handle: "@SirIsaac",
+    },
+    content: {
+      text: "If I have seen further it is by standing on the shoulders of giants",
+    },
+    created_at: 1668506210682,
   },
-  content: {
-    text: "If I have seen further it is by standing on the shoulders of giants",
+  {
+    user: {
+      name: "Descartes",
+      avatars: "https://i.imgur.com/nlhLi3I.png",
+      handle: "@rd",
+    },
+    content: {
+      text: "Je pense , donc je suis",
+    },
+    created_at: 1668592610682,
   },
-  created_at: 1461116232227,
-};
+];
 
 $(document).ready(function () {
   const createTweetElement = function (tweetObj) {
@@ -46,8 +59,11 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
-
-  console.log($tweet);
-  $(".display-tweet").append($tweet);
+  const renderTweets = function (data) {
+    data.forEach((object) => {
+      const tweet = createTweetElement(object);
+      $(".display-tweet").append(tweet);
+    });
+  };
+  renderTweets(tweetData);
 });
