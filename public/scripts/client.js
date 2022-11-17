@@ -4,6 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Escape function to prevent malicious code from being executed
+const escapeFn = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 $(document).ready(function () {
   // Returns a jquery object containing tweet data
   const createTweetElement = function (tweetObj) {
@@ -15,7 +22,7 @@ $(document).ready(function () {
       </header>
       <div class="tweet-details">
         <p>
-          ${tweetObj.content["text"]}
+          ${escapeFn(tweetObj.content["text"])}
         </p>
       </div>
       <footer class="tweet-footer">
