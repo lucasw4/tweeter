@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 $(document).ready(function () {
   // Returns a jquery object containing tweet data
   const createTweetElement = function (tweetObj) {
@@ -32,6 +33,14 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  const loadTweets = function () {
+    $.get("/tweets", function (data) {
+      renderTweets(data);
+    });
+  };
+
+  loadTweets();
+
   // Loops over each object of tweets and renders them to the webpage using createTweetElement
   const renderTweets = function (data) {
     data.forEach((object) => {
@@ -39,5 +48,12 @@ $(document).ready(function () {
       $(".display-tweet").append(tweet);
     });
   };
-  renderTweets(tweetData);
+
+  $("form").submit(() => {
+    window.event.preventDefault();
+    const data = $("#tweet-text").serialize();
+    $.post("/tweets", data, loadTweets());
+  });
+
+  // renderTweets(tweetData);
 });
