@@ -53,7 +53,15 @@ $(document).ready(function () {
   // POST request sends data from textarea on form submission
   $("form").submit(() => {
     window.event.preventDefault();
-    const data = $("#tweet-text").serialize();
-    $.post("/tweets", data, loadTweets());
+
+    // Checks if form data is empty or over 140 length before submitting POST method
+    if ($(`#tweet-text`).val() === "") {
+      alert("Your tweet must not be empty!");
+    } else if ($("#tweet-text").val().length > 140) {
+      alert("Your tweet must not be longer than 140 characters!");
+    } else {
+      const data = $("#tweet-text").serialize();
+      $.post("/tweets", data, loadTweets());
+    }
   });
 });
