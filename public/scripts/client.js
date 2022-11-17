@@ -19,7 +19,7 @@ $(document).ready(function () {
         </p>
       </div>
       <footer class="tweet-footer">
-        <span class="date">${tweetObj["created_at"]}</span>
+        <span class="date">${timeago.format(tweetObj["created_at"])}</span>
         <div class="icons">
           <a href="www.google.com"><i class="fa-solid fa-flag"></i></a>
           <div class="space"></div>
@@ -33,6 +33,7 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  // GET request from /tweets url
   const loadTweets = function () {
     $.get("/tweets", function (data) {
       renderTweets(data);
@@ -49,11 +50,10 @@ $(document).ready(function () {
     });
   };
 
+  // POST request sends data from textarea on form submission
   $("form").submit(() => {
     window.event.preventDefault();
     const data = $("#tweet-text").serialize();
     $.post("/tweets", data, loadTweets());
   });
-
-  // renderTweets(tweetData);
 });
