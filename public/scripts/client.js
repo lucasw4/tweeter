@@ -75,39 +75,30 @@ $(document).ready(function () {
     $(".display-tweet").prepend(createTweetElement(tweet));
   };
 
+  // Checks to see if tweet content is empty, or over character limit and renders an error to webpage, otherwise sends POST request with the data to /tweets
+  const validateTweet = function () {
+    if ($(`#tweet-text`).val() === "") {
+      $(".error-div").text("Sorry, but your tweet can't be empty.").slideDown();
+    } else if ($("#tweet-text").val().length > 140) {
+      $(".error-div")
+        .text("Your tweet can't exceed 140 characters")
+        .slideDown();
+    } else {
+      $(".error-div").slideUp();
+      const data = $("#tweet-text").serialize();
+      $.post("/tweets", data).then(newTweetLoader);
+    }
+  };
+
   // POST request sends data from textarea on form submission
   $("form").submit(() => {
     window.event.preventDefault();
     if ($(".error-div").text() !== "") {
       $(".error-div").slideUp(500, function () {
-        if ($(`#tweet-text`).val() === "") {
-          $(".error-div")
-            .text("Sorry, but your tweet can't be empty.")
-            .slideDown();
-        } else if ($("#tweet-text").val().length > 140) {
-          $(".error-div")
-            .text("Your tweet can't exceed 140 characters")
-            .slideDown();
-        } else {
-          $(".error-div").slideUp();
-          const data = $("#tweet-text").serialize();
-          $.post("/tweets", data).then(newTweetLoader);
-        }
+        validateTweet();
       });
     } else {
-      if ($(`#tweet-text`).val() === "") {
-        $(".error-div")
-          .text("Sorry, but your tweet can't be empty.")
-          .slideDown();
-      } else if ($("#tweet-text").val().length > 140) {
-        $(".error-div")
-          .text("Your tweet can't exceed 140 characters")
-          .slideDown();
-      } else {
-        $(".error-div").slideUp();
-        const data = $("#tweet-text").serialize();
-        $.post("/tweets", data).then(newTweetLoader);
-      }
+      validateTweet();
     }
   });
 });
