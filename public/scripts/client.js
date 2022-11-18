@@ -28,11 +28,11 @@ $(document).ready(function () {
       <footer class="tweet-footer">
         <span class="date">${timeago.format(tweetObj["created_at"])}</span>
         <div class="icons">
-          <a href="www.google.com"><i class="fa-solid fa-flag"></i></a>
+          <a href=""><i class="fa-solid fa-flag"></i></a>
           <div class="space"></div>
-          <a href="www.google.com"><i class="fa-solid fa-retweet"></i></a>
+          <a href=""><i class="fa-solid fa-retweet"></i></a>
           <div class="space"></div>
-          <a href="www.google.com"><i class="fa-solid fa-heart"></i></a>
+          <a href=""><i class="fa-solid fa-heart"></i></a>
           <div class="space"></div>
         </div>
       </footer>
@@ -57,6 +57,9 @@ $(document).ready(function () {
     });
   };
 
+  // CSS for error-div hidden by default to prevent it showing for a split second while jquery loads, hide the div with jquery and then make it visible again
+  $(".error-div").hide();
+  $(".error-div").css("visibility", "visible");
   loadTweets();
 
   // Loops over each object of tweets and renders them to the webpage using createTweetElement
@@ -76,10 +79,13 @@ $(document).ready(function () {
   $("form").submit(() => {
     window.event.preventDefault();
     if ($(`#tweet-text`).val() === "") {
-      alert("Your tweet must not be empty!");
+      $(".error-div").text("Sorry, but your tweet can't be empty.").slideDown();
     } else if ($("#tweet-text").val().length > 140) {
-      alert("Your tweet must not be longer than 140 characters!");
+      $(".error-div")
+        .text("Your tweet can't exceed 140 characters")
+        .slideDown();
     } else {
+      $(".error-div").slideUp();
       const data = $("#tweet-text").serialize();
       $.post("/tweets", data).then(newTweetLoader);
     }
