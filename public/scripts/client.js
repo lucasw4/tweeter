@@ -77,10 +77,26 @@ $(document).ready(function () {
     $(".display-tweet").prepend(createTweetElement(tweet));
   };
 
-  $(".compose-tweet-btn").on("click", () => {
+  const displayTweetForm = function () {
     $(".new-tweet").slideToggle(500, () => {
       $("#tweet-text").focus();
     });
+  };
+
+  // Nav button created, when clicks slides the new-tweet form either up or down and then focuses it.
+  $(".compose-tweet-btn").on("click", () => {
+    displayTweetForm();
+  });
+
+  // When button clicked, scroll to top and display tweet form
+  $(".footer-to-top").on("click", () => {
+    $(window).scrollTop(0);
+    displayTweetForm();
+  });
+
+  // Makes button only appear when position of screen is > 100px from the top
+  $(window).scroll(() => {
+    $(".footer-to-top").toggleClass("scrolled", $(this).scrollTop() > 100);
   });
 
   // Checks to see if tweet content is empty, or over character limit and renders an error to webpage, otherwise sends POST request with the data to /tweets
