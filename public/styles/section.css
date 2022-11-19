@@ -28,4 +28,5 @@ section button {
   background-color: #fc6601;
   color: whitesmoke;
   border: 0;
+  cursor: pointer;
 }
