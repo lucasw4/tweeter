@@ -2,7 +2,7 @@ nav {
   position: fixed;
   height: 120px;
   width: 100%;
-  background-color: #4056a1;
+  background-color: #902bf5;
   color: #ffffff;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -36,5 +36,12 @@ strong {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  color: red;
+  color: #fc6601;
+}
+
+.compose-tweet-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
 }

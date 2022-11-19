@@ -5,6 +5,10 @@
   color: #555149;
 }
 
+.new-tweet {
+  visibility: hidden;
+}
+
 .form-tweet {
   display: flex;
   justify-content: space-between;

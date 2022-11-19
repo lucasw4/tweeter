@@ -60,6 +60,8 @@ $(document).ready(function () {
   // CSS for error-div hidden by default to prevent it showing for a split second while jquery loads, hide the div with jquery and then make it visible again
   $(".error-div").hide();
   $(".error-div").css("visibility", "visible");
+  $(".new-tweet").hide();
+  $(".new-tweet").css("visibility", "visible");
   loadTweets();
 
   // Loops over each object of tweets and renders them to the webpage using createTweetElement
@@ -74,6 +76,12 @@ $(document).ready(function () {
   const renderSpecificTweet = function (tweet) {
     $(".display-tweet").prepend(createTweetElement(tweet));
   };
+
+  $(".compose-tweet-btn").on("click", () => {
+    $(".new-tweet").slideToggle(500, () => {
+      $("#tweet-text").focus();
+    });
+  });
 
   // Checks to see if tweet content is empty, or over character limit and renders an error to webpage, otherwise sends POST request with the data to /tweets
   const validateTweet = function () {
