@@ -57,48 +57,6 @@ $(document).ready(function () {
     });
   };
 
-  // CSS for error-div hidden by default to prevent it showing for a split second while jquery loads, hide the div with jquery and then make it visible again
-  $(".error-div").hide();
-  $(".error-div").css("visibility", "visible");
-  $(".new-tweet").hide();
-  $(".new-tweet").css("visibility", "visible");
-  loadTweets();
-
-  // Loops over each object of tweets and renders them to the webpage using createTweetElement
-  const renderTweets = function (data) {
-    data.forEach((object) => {
-      const tweet = createTweetElement(object);
-      $(".display-tweet").append(tweet);
-    });
-  };
-
-  // Renders specific tweet on form submission without looping through all the tweets
-  const renderSpecificTweet = function (tweet) {
-    $(".display-tweet").prepend(createTweetElement(tweet));
-  };
-
-  const displayTweetForm = function () {
-    $(".new-tweet").slideToggle(500, () => {
-      $("#tweet-text").focus();
-    });
-  };
-
-  // Nav button created, when clicks slides the new-tweet form either up or down and then focuses it.
-  $(".compose-tweet-btn").on("click", () => {
-    displayTweetForm();
-  });
-
-  // When button clicked, scroll to top and display tweet form
-  $(".footer-to-top").on("click", () => {
-    $(window).scrollTop(0);
-    displayTweetForm();
-  });
-
-  // Makes button only appear when position of screen is > 100px from the top
-  $(window).scroll(() => {
-    $(".footer-to-top").toggleClass("scrolled", $(this).scrollTop() > 100);
-  });
-
   // Checks to see if tweet content is empty, or over character limit and renders an error to webpage, otherwise sends POST request with the data to /tweets
   const validateTweet = function () {
     if ($(`#tweet-text`).val() === "") {
@@ -113,6 +71,50 @@ $(document).ready(function () {
       $.post("/tweets", data).then(newTweetLoader);
     }
   };
+
+  const renderTweets = function (data) {
+    data.forEach((object) => {
+      const tweet = createTweetElement(object);
+      $(".display-tweet").append(tweet);
+    });
+  };
+
+  // Renders specific tweet on form submission without looping through all the tweets
+  const renderSpecificTweet = function (tweet) {
+    $(".display-tweet").prepend(createTweetElement(tweet));
+  };
+
+  // Displays tweet form and focuses the textarea for user input
+  const displayTweetForm = function () {
+    $(".new-tweet").slideToggle(500, () => {
+      $("#tweet-text").focus();
+    });
+  };
+
+  // CSS for error-div hidden by default to prevent it showing for a split second while jquery loads, hide the div with jquery and then make it visible again
+  $(".error-div").hide();
+  $(".error-div").css("visibility", "visible");
+  $(".new-tweet").hide();
+  $(".new-tweet").css("visibility", "visible");
+  loadTweets();
+
+  // Nav button created, when clicks slides the new-tweet form either up or down and then focuses it.
+  $(".compose-tweet-btn").on("click", () => {
+    displayTweetForm();
+  });
+
+  // When button clicked, scroll to top and display tweet form
+  $(".footer-to-top").on("click", () => {
+    $(window).scrollTop(0);
+    if (!$(".new-tweet").is(":visible")) {
+      displayTweetForm();
+    }
+  });
+
+  // Makes button only appear when position of screen is > 100px from the top
+  $(window).scroll(() => {
+    $(".footer-to-top").toggleClass("scrolled", $(this).scrollTop() > 100);
+  });
 
   // POST request sends data from textarea on form submission
   $("form").submit(() => {
