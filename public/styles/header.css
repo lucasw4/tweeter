@@ -6,7 +6,7 @@ header.user-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #39704188;
+  background-color: #a254f1;
   background-image: url("../images/cartographer.png");
 }
 
@@ -15,4 +15,24 @@ header.tweet-list {
   display: flex;
   flex-direction: row;
   position: relative;
+}
+
+.header-name {
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 1024px) {
+  header.user-info {
+    margin: 50px 40px;
+    width: 25%;
+    height: 350px;
+  }
+
+  .header-image {
+    width: 11rem;
+    height: 11rem;
+  }
 }

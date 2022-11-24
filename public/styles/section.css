@@ -1,7 +1,7 @@
 section {
   display: flex;
   flex-direction: column;
-  background-color: #f3f1ed;
+  background-color: #f4f1ed;
   margin: 0 2em;
   width: 90%;
   font-family: "Source Sans Pro", sans-serif;
@@ -25,7 +25,8 @@ section label {
 
 section button {
   font-family: "Bungee", cursive;
-  background-color: #4152a1;
+  background-color: #fc6601;
   color: whitesmoke;
   border: 0;
+  cursor: pointer;
 }
