@@ -20,11 +20,11 @@ $(document).ready(function () {
         <h4 class="user-name">${tweetObj.user["name"]}</h4>
         <h4 class="user-handle">${tweetObj.user["handle"]}</h4>
       </header>
-      <div class="tweet-details">
+      <body class="tweet-details">
         <p>
           ${escapeFn(tweetObj.content["text"])}
         </p>
-      </div>
+      </body>
       <footer class="tweet-footer">
         <span class="date">${timeago.format(tweetObj["created_at"])}</span>
         <div class="icons">
@@ -75,7 +75,7 @@ $(document).ready(function () {
   const renderTweets = function (data) {
     data.forEach((object) => {
       const tweet = createTweetElement(object);
-      $(".display-tweet").append(tweet);
+      $(".display-tweet").prepend(tweet);
     });
   };
 

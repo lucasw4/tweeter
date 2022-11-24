@@ -27,7 +27,7 @@ header.tweet-list {
 @media only screen and (min-width: 1024px) {
   header.user-info {
     margin: 50px 40px;
-    width: 25%;
+    width: 350px;
     height: 350px;
   }
 
