@@ -14,6 +14,8 @@ This repository was created by Lucas Sahota to demonstrate his HTML, CSS, JS, jQ
 
 ## Video Demonstration
 
+!['Video Demonstration of Tweeter webpage'](https://github.com/lucasw4/tweeter/blob/master/docs/tweeter.gif?raw=true)
+
 ## Screenshots
 
 <img src="https://github.com/lucasw4/tweeter/blob/master/docs/mobile-tweeter-page.png?raw=true" alt="Mobile tweeter page" width="700" height="500">
@@ -21,5 +23,8 @@ This repository was created by Lucas Sahota to demonstrate his HTML, CSS, JS, jQ
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
+- `Node js`
+- `"body-parser": "^1.15.2"`
+- `"chance": "^1.0.2"`
+- `"express": "^4.13.4"`
+- `"md5": "^2.1.0"`
