@@ -29,12 +29,14 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
-  color: red;
+  color: white;
   margin: auto;
   margin-top: 30px;
   height: 75px;
   width: 400px;
-  border: dashed 2px red;
+  border: solid 4px red;
+  border-radius: 15px;
+  background-color: #fc6601;
 }
 
 ::placeholder {

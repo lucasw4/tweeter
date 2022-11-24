@@ -23,6 +23,7 @@ footer {
   z-index: 99;
   text-align: center;
   cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 
 .scrolled {
@@ -33,6 +34,10 @@ footer {
   color: white;
   transform: rotate(180deg);
   font-size: 45px;
+}
+
+.footer-to-top:hover {
+  background-color: rgb(175, 80, 184);
 }
 
 .round {

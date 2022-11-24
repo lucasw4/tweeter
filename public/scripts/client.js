@@ -60,7 +60,7 @@ $(document).ready(function () {
   // Checks to see if tweet content is empty, or over character limit and renders an error to webpage, otherwise sends POST request with the data to /tweets
   const validateTweet = function () {
     if ($(`#tweet-text`).val() === "") {
-      $(".error-div").text("Sorry, but your tweet can't be empty.").slideDown();
+      $(".error-div").text("Your tweet can't be empty.").slideDown();
     } else if ($("#tweet-text").val().length > 140) {
       $(".error-div")
         .text("Your tweet can't exceed 140 characters")
@@ -72,6 +72,7 @@ $(document).ready(function () {
     }
   };
 
+  // Renders all tweet content to web page
   const renderTweets = function (data) {
     data.forEach((object) => {
       const tweet = createTweetElement(object);
